@@ -4,7 +4,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -35,6 +37,11 @@ public class UtilsTest {
         // confirms nulls inside the list are not considered
         List<Object> nullList = Arrays.asList((Object) null);
         assertFalse(Utils.isAnyNull(nullList));
+
+        // confirms nulls inside maps are not considered
+        Map<Object, Object> nullMap = new HashMap<Object, Object>();
+        nullMap.put(null, null);
+        assertFalse(Utils.isAnyNull(nullMap));
     }
 
     @Test
